@@ -41,13 +41,13 @@ describe("add to duo btn display", () => {
     const drawBtn = await driver.findElement(By.id("draw"));
     await drawBtn.click();
 
-    const botBtn = await driver.findElement(By.buttonId("bot-btn"));
+    const botBtn = await driver.findElement(By.xpath("//button[@id='bot-btn']"));
     for (let i = 0; i < 2; i++) {
       await botBtn[0].click()
     }
 
     const element = await driver.findElement(By.id('player-duo'));
-    await driver.wait(until.elementIsVisible(element), 8000);
+    await driver.wait(until.elementIsVisible(element), 1000);
     
     expect(await element.isDisplayed()).toBe(true);
   });
